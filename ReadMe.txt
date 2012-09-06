@@ -69,4 +69,4 @@ History
   Version 1.1.2  01/27/10
     Fixed minor compilation bugs for new versions of gcc
   Version 1.1.2-mt 02/21/12 by Tian Fang tian.ft@gmail.com
-    Wrapped the global variables in a search operation to the search function. The search operation now can be called cocurrently from different threads.
+    Wrapped the global variables in a search operation to the search function. The search operation now can be called concurrently from different threads.
