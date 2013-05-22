@@ -72,7 +72,7 @@
 #					Mingw using g++
 mingw-g++:
 	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
+	"ANNLIB = libANNmt.a" \
 	"C++ = g++" \
 	"CFLAGS = -O3 -DANN_NO_RANDOM" \
 	"MAKELIB = ar ruv" \
@@ -81,7 +81,7 @@ mingw-g++:
 #					Mingw debug using g++
 mingw-g++-debug:
 	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
+	"ANNLIB = libANNmtd.a" \
 	"C++ = g++" \
 	"CFLAGS = -g -DANN_NO_RANDOM" \
 	"MAKELIB = ar ruv" \
@@ -108,7 +108,7 @@ linux-g++-debug:
 #					Mac OS X using g++
 macosx-g++:
 	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
+	"ANNLIB = libANNmt.a" \
 	"C++ = g++" \
 	"CFLAGS = -O3" \
 	"MAKELIB = libtool -static -o " \
@@ -117,7 +117,7 @@ macosx-g++:
 #					Mac OS X debug using g++
 macosx-g++-debug:
 	$(MAKE) targets \
-	"ANNLIB = libANN.a" \
+	"ANNLIB = libANNmt_debug.a" \
 	"C++ = g++" \
 	"CFLAGS = -g" \
 	"MAKELIB = libtool -static -o " \
