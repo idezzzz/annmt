@@ -60,7 +60,7 @@ default:
 #-----------------------------------------------------------------------------
 # main make entry point
 #-----------------------------------------------------------------------------
-alpha-g++ macosx-g++ make macosx-g++-debug mingw-g++ mingw-g++-debug linux-g++ linux-g++-debug sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g++-sl authors-debug authors-perf:
+alpha-g++ macosx-g++ macosx-g++-debug mingw-g++ mingw-g++-debug linux-g++ linux-g++-debug sgi sunos4 sunos4-g++ sunos5 sunos5-g++ sunos5-g++-sl authors-debug authors-perf:
 	cd src ; $(MAKE) $@
 	cd test ; $(MAKE) $@
 	cd sample ; $(MAKE) $@
