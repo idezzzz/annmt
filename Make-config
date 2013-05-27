@@ -83,7 +83,7 @@ mingw-g++-debug:
 	$(MAKE) targets \
 	"ANNLIB = libANNmtd.a" \
 	"C++ = g++" \
-	"CFLAGS = -g -DANN_NO_RANDOM" \
+	"CFLAGS = -g -DDEBUG -DANN_NO_RANDOM" \
 	"MAKELIB = ar ruv" \
 	"RANLIB = true"
 	

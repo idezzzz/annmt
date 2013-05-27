@@ -42,7 +42,7 @@ INCDIR	= $(BASEDIR)/include
 LIBDIR	= $(BASEDIR)/lib
 BINDIR	= $(BASEDIR)/bin
 LDFLAGS	= -L$(LIBDIR)
-ANNLIBS	= -lANN -lm
+ANNLIBS	= $(BASEDIR)/lib/$(ANNLIB) -lm
 
 #-----------------------------------------------------------------------------
 # Some more definitions
