@@ -14,6 +14,12 @@ OBJECTS_DIR = $$OUT_PWD/out
 MOC_DIR = $$OUT_PWD/out
 RCC_DIR = $$OUT_PWD/out
 UI_DIR = $$OUT_PWD/out
+win32 { # it is strange that in windows the output folder for the obj file cannot be created. There may be some bugs in the pro file.
+    message($${OBJECTS_DIR})
+    MKOUTDIR = $$OUT_PWD/out
+    MKOUTDIR ~= s,/,\\,g
+    !exists(OBJECTS_DIR) : system(mkdir $$MKOUTDIR)
+}
 
 INCLUDEPATH += ./include
 
