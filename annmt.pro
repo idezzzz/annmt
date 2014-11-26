@@ -30,7 +30,7 @@ HEADERS += $$files(./include/ANNmt/*)
 QMAKE_CXXFLAGS += -O2 -Wall -Wno-deprecated -pthread -mfpmath=sse -fpermissive -shared
 
 macx | linux-g++* {
-QMAKE_LFLAGS += -fPIC -march=native
+QMAKE_LFLAGS += -fPIC
 }
 
 win32 {
