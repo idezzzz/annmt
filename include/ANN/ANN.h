@@ -93,6 +93,8 @@
 #include <cmath>			// math includes
 #include <iostream>			// I/O streams
 #include <cstring>			// C-style strings
+#include <vector>
+#include <tr1/unordered_map>
 
 //----------------------------------------------------------------------
 // Limits
@@ -752,16 +754,16 @@ public:
 		int				bs = 1);		// bucket size
 
 	ANNkd_tree(							// build from point array
-		ANNpointArray	pa,				// point array
-		int				n,				// number of points
-		int				dd,				// dimension
+                ANNpointArray	pa,                                     // point array
+                int				n,			// number of points
+                int				dd,			// dimension
 		int				bs = 1,			// bucket size
-		ANNsplitRule	split = ANN_KD_SUGGEST);	// splitting method
+                ANNsplitRule	split = ANN_KD_SUGGEST);                // splitting method
 
 	ANNkd_tree(							// build from dump file
-		std::istream&	in);			// input stream for dump file
+                std::istream&	in);                                    // input stream for dump file
 
-	~ANNkd_tree();						// tree destructor
+        ~ANNkd_tree();                                                  // tree destructor
 
 	void annkSearch(					// approx k near neighbor search
 		ANNpoint		q,				// query point
@@ -801,6 +803,11 @@ public:
 	virtual void Dump(					// dump entire tree
 		ANNbool			with_pts,		// print points as well?
 		std::ostream&	out);			// output stream
+
+        virtual void TraverseByLevel(
+                std::vector<std::vector<int> > & level_nodes,
+                std::vector<std::pair<int, int> > & child_nodes,
+                std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes);
 								
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)

@@ -93,6 +93,7 @@
 #include <cmath>			// math includes
 #include <iostream>			// I/O streams
 #include <cstring>			// C-style strings
+#include <vector>
 
 //----------------------------------------------------------------------
 // Limits
@@ -796,11 +797,15 @@ public:
 
 	virtual void Print(					// print the tree (for debugging)
 		ANNbool			with_pts,		// print points as well?
-		std::ostream&	out);			// output stream
+        std::ostream&	out);			// output stream
 
-	virtual void Dump(					// dump entire tree
-		ANNbool			with_pts,		// print points as well?
-		std::ostream&	out);			// output stream
+    virtual void Dump(					// dump entire tree
+        ANNbool			with_pts,		// print points as well?
+        std::ostream&	out);			// output stream
+
+    virtual void TraverseByLevel(
+            std::vector<std::vector<int> > & level_nodes,
+            std::vector<std::pair<int, int> > & child_nodes);
 								
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)
