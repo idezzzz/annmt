@@ -804,10 +804,8 @@ public:
 		ANNbool			with_pts,		// print points as well?
 		std::ostream&	out);			// output stream
 
-        virtual void TraverseByLevel(
-                std::vector<std::vector<int> > & level_nodes,
-                std::vector<std::pair<int, int> > & child_nodes,
-                std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes);
+        virtual void TraverseByLevel(std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
+                                     std::tr1::unordered_map<int, std::vector<double> > & bound_boxes);
 								
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)

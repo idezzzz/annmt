@@ -123,11 +123,11 @@ public:
 												// print node
 	virtual void print(int level, ostream &out) = 0;
 	virtual void dump(ostream &out) = 0;		// dump node
-        virtual void traver_by_level(
-            int level,
-            std::vector<std::vector<int> > & level_nodes,
-            std::vector<std::pair<int, int> > & child_nodes,
-            std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes) = 0;
+        virtual void travel_by_level(
+            int & node_index,
+            std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
+            std::tr1::unordered_map<int, std::vector<double> > & bound_boxes,
+            std::vector<double> const & child_bound_boxes) = 0;
 
 	friend class ANNkd_tree;					// allow kd-tree to access us
 };
@@ -179,11 +179,10 @@ public:
 				ANNorthRect &bnd_box);			// bounding box
 	virtual void print(int level, ostream &out);// print node
 	virtual void dump(ostream &out);			// dump node
-        virtual void traver_by_level(
-                int level,
-                std::vector<std::vector<int> > & level_nodes,
-                std::vector<std::pair<int, int> > & child_nodes,
-                std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes);
+        virtual void travel_by_level(int & node_count,
+                                     std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
+                                     std::tr1::unordered_map<int, std::vector<double> > & bound_boxes,
+                                     std::vector<double> const & child_bound_boxes);
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search
@@ -251,10 +250,10 @@ public:
 	virtual void print(int level, ostream &out);// print node
 	virtual void dump(ostream &out);			// dump node
 
-        virtual void traver_by_level(int level,
-                std::vector<std::vector<int> > & level_nodes,
-                std::vector<std::pair<int, int> > & child_nodes,
-                std::tr1::unordered_map<int, std::vector<int> > &leaf_point_indexes);
+        virtual void travel_by_level(int & node_count,
+                                     std::tr1::unordered_map<int, std::vector<int> > &leaf_point_indexes,
+                                     std::tr1::unordered_map<int, std::vector<double> > & bound_boxes,
+                                     std::vector<double> const & child_bound_boxes);
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search
