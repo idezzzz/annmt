@@ -94,10 +94,10 @@ public:
 	virtual void print(int level, ostream &out);// print node
 	virtual void dump(ostream &out);			// dump node
     virtual void travel_by_level(
+                ANNpointArray pts,
                 int & node_index,
                 std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
-                std::tr1::unordered_map<int, std::vector<double> > & bound_boxes,
-                std::vector<double> const & child_bound_boxes) {}
+                std::tr1::unordered_map<int, double> & bound_boxes) {}
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search

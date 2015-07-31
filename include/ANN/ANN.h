@@ -805,7 +805,7 @@ public:
 		std::ostream&	out);			// output stream
 
         virtual void TraverseByLevel(std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
-                                     std::tr1::unordered_map<int, std::vector<double> > & bound_boxes);
+                                     std::tr1::unordered_map<int, double> & spread_sizes);
 								
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)
