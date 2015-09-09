@@ -94,7 +94,15 @@
 #include <iostream>			// I/O streams
 #include <cstring>			// C-style strings
 #include <vector>
+
+#if (__GNUC__*10000+__GNUC_MINOR__*100+__GNUC_PATCHLEVEL__) > 40400
 #include <tr1/unordered_map>
+#elif defined(_MSC_VER)
+#include <unordered_map>
+#else
+#include <boost/tr1/unordered_map.hpp>
+#include <boost/tr1/functional.hpp>
+#endif
 
 //----------------------------------------------------------------------
 // Limits
