@@ -126,8 +126,9 @@ public:
         virtual void travel_by_level(
             ANNpointArray pts,
             int & node_index,
-            std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
-            std::tr1::unordered_map<int, double> & spread_sizes) = 0;
+            std::vector<int> & leaf_indexes,
+            std::vector<std::vector<int> > & leaf_point_indexes,
+            std::vector<double> & spread_sizes) = 0;
 
 	friend class ANNkd_tree;					// allow kd-tree to access us
 };
@@ -181,8 +182,9 @@ public:
 	virtual void dump(ostream &out);			// dump node
         virtual void travel_by_level(ANNpointArray pts,
                                      int & node_count,
-                                     std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
-                                     std::tr1::unordered_map<int, double> & spread_sizes);
+                                     std::vector<int> & leaf_indexes,
+                                     std::vector<std::vector<int> > & leaf_point_indexes,
+                                     std::vector<double> & spread_sizes);
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search
@@ -252,8 +254,9 @@ public:
 
         virtual void travel_by_level(ANNpointArray pts,
                                      int & node_count,
-                                     std::tr1::unordered_map<int, std::vector<int> > &leaf_point_indexes,
-                                     std::tr1::unordered_map<int, double> & spread_sizes);
+                                     std::vector<int> & leaf_indexes,
+                                     std::vector<std::vector<int> > & leaf_point_indexes,
+                                     std::vector<double> & spread_sizes);
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search

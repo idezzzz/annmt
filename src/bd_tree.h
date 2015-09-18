@@ -30,7 +30,6 @@
 #include <ANN/ANNx.h>					// all ANN includes
 #include "kd_tree.h"					// kd-tree includes
 #include <vector>
-#include <tr1/unordered_map>
 
 //----------------------------------------------------------------------
 //	bd-tree shrinking node.
@@ -96,8 +95,9 @@ public:
     virtual void travel_by_level(
                 ANNpointArray pts,
                 int & node_index,
-                std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
-                std::tr1::unordered_map<int, double> & bound_boxes) {}
+                std::vector<int> & node_indexes,
+                std::vector<std::vector<int> > & leaf_point_indexes,
+                std::vector<double> & bound_boxes) {}
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search

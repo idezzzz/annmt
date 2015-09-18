@@ -95,15 +95,6 @@
 #include <cstring>			// C-style strings
 #include <vector>
 
-#if (__GNUC__*10000+__GNUC_MINOR__*100+__GNUC_PATCHLEVEL__) > 40400
-#include <tr1/unordered_map>
-#elif defined(_MSC_VER)
-#include <unordered_map>
-#else
-#include <boost/tr1/unordered_map.hpp>
-#include <boost/tr1/functional.hpp>
-#endif
-
 //----------------------------------------------------------------------
 // Limits
 // There are a number of places where we use the maximum double value as
@@ -812,8 +803,9 @@ public:
 		ANNbool			with_pts,		// print points as well?
 		std::ostream&	out);			// output stream
 
-        virtual void TraverseByLevel(std::tr1::unordered_map<int, std::vector<int> > & leaf_point_indexes,
-                                     std::tr1::unordered_map<int, double> & spread_sizes);
+        virtual void TraverseByLevel(std::vector<int> & leaf_indexes,
+                                     std::vector<std::vector<int> > & leaf_point_indexes,
+                                     std::vector<double> & spread_sizes);
 								
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)
