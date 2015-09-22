@@ -93,6 +93,7 @@
 #include <cmath>			// math includes
 #include <iostream>			// I/O streams
 #include <cstring>			// C-style strings
+#include <vector>
 
 //----------------------------------------------------------------------
 // Limits
@@ -761,7 +762,7 @@ public:
 	ANNkd_tree(							// build from dump file
 		std::istream&	in);			// input stream for dump file
 
-	~ANNkd_tree();						// tree destructor
+        ~ANNkd_tree();						// tree destructor
 
 	void annkSearch(					// approx k near neighbor search
 		ANNpoint		q,				// query point
@@ -802,6 +803,11 @@ public:
 		ANNbool			with_pts,		// print points as well?
 		std::ostream&	out);			// output stream
 								
+        virtual void TraverseByLevel(
+                std::vector<int> & node_indexes,
+                std::vector<std::vector<int> > & leaf_point_indexes,
+                std::vector<double> & spread_sizes);
+
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)
 
