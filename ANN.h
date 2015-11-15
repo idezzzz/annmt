@@ -806,7 +806,7 @@ public:
         virtual void TraverseByLevel(
                 std::vector<int> & node_indexes,
                 std::vector<std::vector<int> > & leaf_point_indexes,
-                std::vector<double> & spread_sizes);
+                std::vector<std::vector<double> > & bound_boxes);
 
 	virtual void getStats(				// compute tree statistics
 		ANNkdStats&		st);			// the statistics (modified)

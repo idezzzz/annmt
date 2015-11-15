@@ -92,12 +92,11 @@ public:
 				ANNorthRect &bnd_box);			// bounding box
 	virtual void print(int level, ostream &out);// print node
 	virtual void dump(ostream &out);			// dump node
-    virtual void travel_by_level(
-                ANNpointArray pts,
-                int & node_index,
-                std::vector<int> & node_indexes,
-                std::vector<std::vector<int> > & leaf_point_indexes,
-                std::vector<double> & bound_boxes) {}
+    virtual void travel_by_level(ANNpointArray pts
+                                 , int & node_index
+                                 , std::vector<int> & node_indexes
+                                 , std::vector<std::vector<int> > & leaf_point_indexes
+                                 , std::vector<std::vector<double> > & bound_boxes) {}
 
 	virtual void ann_search(ANNdist, ANNVariables & var);			// standard search
 	virtual void ann_pri_search(ANNdist, ANNVariables & var);		// priority search
