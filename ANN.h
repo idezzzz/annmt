@@ -762,7 +762,7 @@ public:
 	ANNkd_tree(							// build from dump file
 		std::istream&	in);			// input stream for dump file
 
-        ~ANNkd_tree();						// tree destructor
+        virtual ~ANNkd_tree();						// tree destructor, make it virtual to make sure it is safe for inheritance. Modified by Tian, FANG
 
 	void annkSearch(					// approx k near neighbor search
 		ANNpoint		q,				// query point
