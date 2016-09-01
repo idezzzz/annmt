@@ -804,7 +804,7 @@ public:
         std::ostream&	out);			// output stream
 
     virtual void TraverseByLevel(std::vector<int> & leaf_indexes
-                                 , std::vector<std::vector<int> > & leaf_point_indexes,
+                                 , std::vector<std::vector<int> > & leaf_point_indexes
                                  , std::vector<std::vector<double> > & bound_boxes);
 								
 	virtual void getStats(				// compute tree statistics
